@@ -5,22 +5,8 @@ import csv # data collection
 import time
 from pathlib import Path
 
-# Frontend Setup - Now with Pygame
-
-# Runs local pygame instance for user data collection - this
-# was easier than creating and deploying a react website in the end
-
-# Code ----------------------------------------------
-
-pygame.init() # start game
-
-    # window setup
-screen_height = 600
-screen_width = 800
-screen = pygame.display.set_mode((screen_width, screen_height)) 
-pygame.display.set_caption("Endangered Species Research") # window name
-font = pygame.font.SysFont(None, 36)
-clock = pygame.time.Clock()
+# Prep for the Research Game //////////////////////////////
+# //////////////////////////////////////
 
 # STORING collected data ------
     # setting folder path
@@ -56,6 +42,26 @@ userIdx = 1
 with open(user_demographics_path,'rt', encoding='utf-8') as infile:
     headers, *data = csv.reader(infile)
     userIdx = len(data) + 1 # gets us the current user index (last filled index + 1)
+
+
+# End of prep
+
+# Frontend Setup - Now with Pygame
+
+# Runs local pygame instance for user data collection - this
+# was easier than creating and deploying a react website in the end
+
+# Code ----------------------------------------------
+
+pygame.init() # start game
+
+    # window setup
+screen_height = 600
+screen_width = 800
+screen = pygame.display.set_mode((screen_width, screen_height)) 
+pygame.display.set_caption("Endangered Species Research") # window name
+font = pygame.font.SysFont(None, 36)
+clock = pygame.time.Clock()
 
 # PART 1 - COLLECTING USER DEMOGRAPHICS --------------------------------
 # ------------------------------------
